@@ -6,7 +6,7 @@ import { useStore } from "@/lib/store";
 export default function ToastStack() {
   const toasts = useStore((s) => s.toasts);
   return (
-    <div className="pointer-events-none absolute bottom-8 left-1/2 z-30 flex w-full max-w-md -translate-x-1/2 flex-col items-center gap-2 px-4">
+    <div className="pointer-events-none absolute bottom-24 left-1/2 z-30 flex w-full max-w-md -translate-x-1/2 flex-col items-center gap-2 px-4 sm:bottom-8">
       {toasts.map((t) => (
         <div
           key={t.id}

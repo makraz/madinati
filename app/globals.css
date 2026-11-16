@@ -5,6 +5,7 @@
 html,
 body {
   height: 100%;
+  overscroll-behavior: none; /* évite le pull-to-refresh qui casse la carte */
 }
 
 body {
@@ -26,8 +27,8 @@ body {
 
 /* ---- Marqueurs personnalisés (forme + couleur + icône, jamais couleur seule) ---- */
 .mk {
-  width: 30px;
-  height: 30px;
+  width: 34px;
+  height: 34px;
   border: 2px solid #ffffff;
   box-shadow: 0 2px 8px rgba(15, 23, 42, 0.45);
   display: flex;
@@ -70,6 +71,16 @@ body {
   background: #0f172a;
   color: #e2e8f0;
   border-color: #1e293b;
+}
+
+/* Popups plus compacts sur mobile */
+@media (max-width: 640px) {
+  .madinati-popup .leaflet-popup-content {
+    width: min(260px, calc(100vw - 96px)) !important;
+  }
+  .leaflet-control-zoom {
+    margin-bottom: 8px;
+  }
 }
 
 /* Petit scrollbar discret pour les panneaux */

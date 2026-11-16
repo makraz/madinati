@@ -31,7 +31,8 @@ export default function ReportDrawer() {
   };
 
   return (
-    <aside className="panel-scroll absolute bottom-4 right-4 top-4 z-20 flex w-[400px] flex-col overflow-y-auto rounded-2xl border border-slate-200 bg-white shadow-2xl dark:border-slate-700 dark:bg-slate-900">
+    <aside className="panel-scroll absolute inset-x-0 bottom-0 z-20 flex max-h-[85dvh] w-full flex-col overflow-y-auto rounded-t-2xl border border-slate-200 bg-white shadow-2xl dark:border-slate-700 dark:bg-slate-900 sm:inset-x-auto sm:bottom-4 sm:right-4 sm:top-4 sm:max-h-none sm:w-[400px] sm:rounded-2xl">
+      <div className="mx-auto mt-2 h-1.5 w-10 shrink-0 rounded-full bg-slate-200 dark:bg-slate-700 sm:hidden" />
       <div className="flex items-center justify-between border-b border-slate-100 p-4 dark:border-slate-800">
         <div>
           <h2 className="text-base font-bold text-slate-900 dark:text-white">{t("reportTitle")}</h2>

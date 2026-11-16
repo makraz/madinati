@@ -34,7 +34,7 @@ function makeIcon(type: MarkerType, selected: boolean): L.DivIcon {
   const html = `<div class="mk ${selected ? "mk-sel" : ""}" style="background:${COLORS[type]};${shape}"><span style="display:flex;${inner}">${renderToStaticMarkup(
     <Icon size={15} strokeWidth={2.6} color="#ffffff" />
   )}</span></div>`;
-  return L.divIcon({ className: `mkpin-${type}`, html, iconSize: [30, 30], iconAnchor: [15, 15] });
+  return L.divIcon({ className: `mkpin-${type}`, html, iconSize: [34, 34], iconAnchor: [17, 17] });
 }
 
 function ClickAway() {
@@ -61,7 +61,7 @@ function FlyToSelected() {
   // après un reset de la démo : fermer les popups et revenir à la vue d'ensemble
   useEffect(() => {
     map.closePopup();
-    map.setView(MAP_CENTER, START_ZOOM, { animate: true });
+    map.setView(MAP_CENTER, startZoom(), { animate: true });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [resetCount, map]);
 
@@ -81,6 +81,12 @@ function FlyToSelected() {
 interface MapItem {
   type: MarkerType;
   item: Issue | Proposal | Project;
+}
+
+// zoom initial plus large sur petit écran pour voir toute la zone
+function startZoom(): number {
+  if (typeof window !== "undefined" && window.innerWidth < 640) return MIN_ZOOM;
+  return START_ZOOM;
 }
 
 export default function MapView() {
@@ -112,7 +118,7 @@ export default function MapView() {
     <div className="absolute inset-0 z-0">
       <MapContainer
         center={MAP_CENTER}
-        zoom={START_ZOOM}
+        zoom={startZoom()}
         minZoom={MIN_ZOOM}
         maxZoom={MAX_ZOOM}
         maxBounds={MAX_BOUNDS}

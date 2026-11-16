@@ -11,6 +11,13 @@ export const metadata: Metadata = {
     "Signalez des problèmes d'infrastructure, votez sur les propositions de votre quartier et suivez les chantiers publics de votre ville.",
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#ea580c",
+} as const;
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr" suppressHydrationWarning>

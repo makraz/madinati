@@ -18,7 +18,7 @@ export default function Sidebar() {
   const idle = "text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800";
 
   return (
-    <aside className="z-20 flex w-52 shrink-0 flex-col border-r border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
+    <aside className="z-20 hidden w-52 shrink-0 flex-col border-r border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900 md:flex">
       <nav className="flex flex-col gap-1 p-3">
         <button className={`${item} ${view === "map" ? active : idle}`} onClick={() => setView("map")}>
           <MapIcon size={17} />

@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import dynamic from "next/dynamic";
+import BottomNav from "@/components/BottomNav";
 import DetailPanel from "@/components/DetailPanel";
 import Onboarding from "@/components/Onboarding";
 import ProposalsPanel from "@/components/ProposalsPanel";
@@ -39,7 +40,7 @@ export default function AppShell() {
   }, []);
 
   return (
-    <div className="flex h-screen flex-col overflow-hidden bg-slate-100 dark:bg-slate-950">
+    <div className="flex h-[100dvh] flex-col overflow-hidden bg-slate-100 dark:bg-slate-950">
       <TopBar />
       <div className="flex min-h-0 flex-1">
         <Sidebar />
@@ -50,7 +51,8 @@ export default function AppShell() {
           <ToastStack />
         </main>
       </div>
-      <footer className="z-30 flex h-6 shrink-0 items-center justify-center border-t border-slate-200 bg-white text-[10px] font-medium text-slate-400 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-500">
+      <BottomNav />
+      <footer className="z-30 hidden h-6 shrink-0 items-center justify-center border-t border-slate-200 bg-white text-[10px] font-medium text-slate-400 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-500 sm:flex">
         {t("footer")}
       </footer>
       {showOnboarding && <Onboarding />}

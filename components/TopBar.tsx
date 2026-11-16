@@ -26,7 +26,7 @@ export default function TopBar() {
           <div className="text-[17px] font-bold tracking-tight text-slate-900 dark:text-white">
             Madinati
           </div>
-          <div className="-mt-0.5 text-[10px] font-medium text-slate-400 dark:text-slate-500">
+          <div className="-mt-0.5 hidden text-[10px] font-medium text-slate-400 dark:text-slate-500 min-[420px]:block">
             {t("tagline")}
           </div>
         </div>
@@ -75,18 +75,18 @@ export default function TopBar() {
 
       <button
         onClick={reset}
-        className="flex items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-2 text-xs font-semibold text-slate-600 transition hover:bg-slate-50 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800"
+        className="flex items-center gap-1.5 rounded-lg border border-slate-200 px-2.5 py-2 text-xs font-semibold text-slate-600 transition hover:bg-slate-50 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800 sm:px-3"
         title={t("reset")}
       >
         <RotateCcw size={14} />
-        {t("reset")}
+        <span className="hidden sm:inline">{t("reset")}</span>
       </button>
       <button
         onClick={openReport}
-        className="flex items-center gap-1.5 rounded-lg bg-orange-600 px-3.5 py-2 text-xs font-bold text-white shadow-sm transition hover:bg-orange-700"
+        className="flex items-center gap-1.5 rounded-lg bg-orange-600 px-2.5 py-2 text-xs font-bold text-white shadow-sm transition hover:bg-orange-700 sm:px-3.5"
       >
         <Plus size={16} strokeWidth={3} />
-        {t("reportFab")}
+        <span className="hidden sm:inline">{t("reportFab")}</span>
       </button>
     </header>
   );
